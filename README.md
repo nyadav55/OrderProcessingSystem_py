@@ -1,18 +1,18 @@
 ﻿# OrderProcessingSystem_py
 Category,Pattern,Real-world use
--- Creational
-Singleton,One shared database connection
-Factory Method,Create Electronics vs Clothing products
-Abstract Factory,Stripe / PayPal payment families
-Builder,Step-by-step Order construction
--- Structural
-Adapter,Wrap legacy payment system
-Decorator,Gift wrap + Express + Insurance
-Facade,One simple place_order() method
--- Behavioral
-Strategy,Swap shipping & discount algorithms
-Observer,"Notify customer, warehouse, analytics"
-Command,Place/Cancel orders with Undo
+1-- Creational
+Singleton-One shared database connection
+Factory Method-Create Electronics vs Clothing products
+Abstract Factory-Stripe / PayPal payment families
+Builder-Step-by-step Order construction
+2-- Structural
+Adapter-Wrap legacy payment system
+Decorator-Gift wrap + Express + Insurance
+Facade-One simple place_order() method
+3-- Behavioral
+Strategy-Swap shipping & discount algorithms
+Observer-"Notify customer, warehouse, analytics"
+Command-Place/Cancel orders with Undo
 
 # Strucutre & CMD (powershell)
 ecommerce_design_patterns/
