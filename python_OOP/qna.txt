@@ -1,0 +1,17 @@
+
+What is OOP?	
+A programming paradigm that organizes code around objects containing data and behavior.
+Class vs object?	
+A class is a blueprint; an object is an instance.
+What is self?	
+A reference to the current instance.
+What is encapsulation?	
+Controlling access to data and validating state changes.
+What is inheritance?	
+Reusing and extending a parent class.
+What is polymorphism?	
+Different objects implementing the same interface differently.
+Inheritance vs composition?	
+Inheritance models “is-a”; composition models “has-a.”
+Why is OOP useful for design patterns?	
+It enables reusable abstractions, interchangeable implementations, and loosely coupled components.
