@@ -11,6 +11,7 @@ Step	Task	Outcome
 1.8	Add unit tests using pytest	Verify business logic
 1.9	Configure logging	Track application events
 Deliverable: A working application that creates an order and calculates its total.
+
 # -- Phase -- 2 — Creational Design Patterns
 Step	Pattern	Real-world use
 2.1	Singleton	Shared application configuration
@@ -18,18 +19,21 @@ Step	Pattern	Real-world use
 2.3	Abstract Factory	Create compatible payment and shipping services
 2.4	Builder	Build complex orders step by step
 Deliverable: Flexible object creation without scattering construction logic throughout the application.
+
 # -- Phase -- 3 — Structural Design Patterns
 Step	Pattern	Real-world use
 3.1	Adapter	Integrate an external payment gateway
 3.2	Decorator	Add discounts, taxes, and shipping charges
 3.3	Facade	Expose one simple checkout interface
 Deliverable: A checkout workflow that hides integration complexity.
+
 # -- Phase -- 4 — Behavioral Design Patterns
 Step	Pattern	Real-world use
 4.1	Strategy	Select payment or shipping algorithms
 4.2	Observer	Notify customers when order status changes
 4.3	Command	Represent checkout, cancellation, and refund actions
 Deliverable: A modular order-processing workflow that can change behavior without rewriting the entire system.
+
 # -- Phase -- 5 — Business Logic and Database
 - Implement product catalog and inventory management.
 - Add customers, orders, and order items.
@@ -38,6 +42,7 @@ Deliverable: A modular order-processing workflow that can change behavior withou
 - Implement order statuses and lifecycle validation.
 - Add migrations using Alembic.
 Deliverable: Persistent order processing with database integrity.
+
 # -- Phase -- 6 — REST API and Microservices
 - Build REST APIs using FastAPI.
 - Add request/response schemas with Pydantic.
@@ -47,6 +52,7 @@ Deliverable: Persistent order processing with database integrity.
 - Integrate asynchronous tasks using Celery and Redis.
 - Explore service separation for payments, orders, and notifications.
 Deliverable: An API-based e-commerce backend.
+
 # -- Phase -- 7 — Production Engineering
 - Unit, integration, and API tests with pytest.
 - Code quality using Ruff and type checking using mypy.
@@ -57,5 +63,6 @@ Deliverable: An API-based e-commerce backend.
 - API documentation, health checks, and monitoring.
 - Security, secrets management, and dependency scanning.
 Deliverable: A testable, containerized application with an automated delivery pipeline.
+
 # -- Phase -- 8 — Interview Preparation
 - Explain

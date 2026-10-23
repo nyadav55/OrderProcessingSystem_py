@@ -1,0 +1,62 @@
+from decimal import Decimal
+from models.product import Product
+from models.order import Order
+from creational.factory_method import PaymentFactory
+from creational.abstract_factory import PayPalCheckoutFactory
+from creational.builder import OrderBuilder
+
+def main():
+    # Create Products.
+    laptop = Product(1, "Laptop", Decimal("800.00"))
+    mouse = Product(2, "Mouse", Decimal("25.00"))
+
+    # Create an order for a customer.
+    order = Order("ORD-1001", "customer@example.com")
+
+    # Add products to the order.
+    order.add_product(laptop)
+    order.add_product(mouse) 
+
+    # Display order details.
+    print(f"Order ID: {order.order_id}")
+    print(f"Customer: {order.customer_email}")
+    print(f"Status: {order.status}")
+
+    print("\nProducts:")
+    for product in order.items:
+        print(f" - {product}")
+    
+    print(f"\nOrder Total: ${order.total:.2f}")
+
+    #Creational- Factory Pattern Create a payment method based on customer selection.
+    payment = PaymentFactory.create_payment("credit_card")
+    # Process the order payment.
+    print(payment.pay(float(order.total)))
+
+    #Creational-Abstract Factory Pattern Create a compatible payment and shipping service.
+    factory = PayPalCheckoutFactory()
+
+    payment = factory.create_payment()
+    shipping = factory.create_shipping()
+
+    print(payment.pay(order.total))
+    print(shipping.ship(order.order_id))
+
+    # Creational-Builder Pattern Build an order step by step.
+    built_order = (
+        OrderBuilder("ORD-1002")
+        .set_customer("customer@example.com")
+        .add_product(laptop)
+        .add_product(mouse)
+        .set_shipping_address("Bhopal, India")
+        .build()
+    )
+
+    print(f"Order ID: {built_order.order_id}")
+    print(f"Customer: {built_order.customer_email}")
+    print(f"Shipping: {built_order.shipping_address}")
+    print(f"Total: ${built_order.total:.2f}")
+
+if __name__ == "__main__":
+    main()        
+
