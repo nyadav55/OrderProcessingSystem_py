@@ -4,6 +4,15 @@ from models.order import Order
 from creational.factory_method import PaymentFactory
 from creational.abstract_factory import PayPalCheckoutFactory
 from creational.builder import OrderBuilder
+from structural.adapter import ExternalPaymentGateway, PaymentAdapter
+from structural.decorator import (
+    BasePrice,
+    DiscountDecorator,
+    TaxDecorator,
+    ShippingDecorator,
+)
+from structural.facade import CheckoutFacade
+
 
 def main():
     # Create Products.
@@ -56,6 +65,28 @@ def main():
     print(f"Customer: {built_order.customer_email}")
     print(f"Shipping: {built_order.shipping_address}")
     print(f"Total: ${built_order.total:.2f}")
+
+    # Structural-Adapter Pattern
+    gateway = ExternalPaymentGateway()
+    adapter = PaymentAdapter(gateway)
+    print(adapter.pay(order.total))
+
+    # Structural-Decorator Pattern
+    # Apply discount, then tax, then shipping.
+    price = BasePrice(order.total)
+    price = DiscountDecorator(price)
+    price = TaxDecorator(price)
+    price = ShippingDecorator(price, Decimal("50.00"))
+
+    print(f"Final Price: ${price.calculate():.2f}")
+
+    # Structural-Facade Pattern
+    # One call coordinates all checkout services.
+    checkout = CheckoutFacade()
+
+    for result in checkout.checkout(order.order_id, order.total):
+        print(result)
+
 
 if __name__ == "__main__":
     main()        
