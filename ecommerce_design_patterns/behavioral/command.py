@@ -7,14 +7,12 @@
 
 from abc import ABC, abstractmethod
 
-
 # Common interface for all commands.
 class Command(ABC):
 
     @abstractmethod
     def execute(self) -> str:
         pass
-
 
 # Business object that performs the actual operations.
 class OrderService:
@@ -24,7 +22,6 @@ class OrderService:
 
     def cancel_order(self, order_id: str) -> str:
         return f"Order {order_id} cancelled successfully"
-
 
 # Command for placing an order.
 class PlaceOrderCommand(Command):
@@ -36,7 +33,6 @@ class PlaceOrderCommand(Command):
     def execute(self) -> str:
         return self.service.place_order(self.order_id)
 
-
 # Command for cancelling an order.
 class CancelOrderCommand(Command):
 
@@ -46,7 +42,6 @@ class CancelOrderCommand(Command):
 
     def execute(self) -> str:
         return self.service.cancel_order(self.order_id)
-
 
 # Invoker executes commands without knowing their details.
 class OrderController:
