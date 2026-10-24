@@ -12,6 +12,19 @@ from structural.decorator import (
     ShippingDecorator,
 )
 from structural.facade import CheckoutFacade
+from behavioral.strategy import (
+    ShippingCostCalculator,
+    StandardShipping,
+    ExpressShipping,
+)
+from behavioral.observer import OrderSubject, CustomerNotifier
+from behavioral.command import (
+    OrderService,
+    PlaceOrderCommand,
+    CancelOrderCommand,
+    OrderController,
+)
+
 
 
 def main():
@@ -87,6 +100,39 @@ def main():
     for result in checkout.checkout(order.order_id, order.total):
         print(result)
 
+    # Behavioral-Strategy Pattern
+    # Start with standard shipping.
+    calculator = ShippingCostCalculator(StandardShipping())
+    print(f"Standard: ${calculator.calculate(order.total):.2f}")
+
+    # Switch to express shipping without changing the calculator.
+    calculator.set_strategy(ExpressShipping())
+    print(f"Express: ${calculator.calculate(order.total):.2f}")
+
+    # Behavioral-Observer Pattern
+    # Create an order status subject.
+    subject = OrderSubject("ORD-1001")
+
+    # Subscribe the customer to order updates.
+    customer = CustomerNotifier()
+    subject.subscribe(customer)
+
+    # Status changes trigger notifications.
+    subject.set_status("shipped")
+    subject.set_status("delivered")
+
+    # Behavioral-Command Pattern
+    # Create the service and controller.
+    service = OrderService()
+    controller = OrderController()
+
+    # Execute the place-order command.
+    place_command = PlaceOrderCommand(service, "ORD-1001")
+    controller.execute_command(place_command)
+
+    # Execute the cancel-order command.
+    cancel_command = CancelOrderCommand(service, "ORD-1001")
+    controller.execute_command(cancel_command)
 
 if __name__ == "__main__":
     main()        
