@@ -1,0 +1,33 @@
+
+Phase 5.2 — Define Database Models using SQLAlchemy
+python -m pip install sqlalchemy psycopg[binary]
+
+ecommerce_design_patterns/
+└── db/
+    ├── __init__.py
+    ├── base.py
+    └── models/
+        ├── __init__.py
+        ├── product.py
+        ├── order.py
+        └── order_item.py
+# Create the nested folders first
+New-Item -ItemType Directory -Path "db/models" -Force
+
+# Create the files in their respective folders
+New-Item -ItemType File "db/__init__.py"
+New-Item -ItemType File "db/base.py"
+New-Item -ItemType File "db/models/__init__.py"
+New-Item -ItemType File "db/models/product.py"
+New-Item -ItemType File "db/models/order.py"
+New-Item -ItemType File "db/models/order_item.py"
+
+# After creating all Files/folders - Verify imports
+python -c "import db.models; print('Database models imported successfully')"
+# Expected output:
+Database models imported successfully
+
+# Repository layer path
+New-Item -ItemType Directory -Force repositories
+New-Item -ItemType File -Force repositories\__init__.py
+New-Item -ItemType File -Force repositories\product_repository.py

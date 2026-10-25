@@ -112,3 +112,6 @@ This is a learning project. Payment and shipping integrations will initially be 
 
 ## 10. Expected Outcome
 By completing this project, you should be able to explain, implement, test, and select appropriate Python design patterns for real-world software engineering problems.
+
+# powershell -  "rollback" command
+Remove-Item -Path tests -Recurse -Force
