@@ -85,38 +85,27 @@ ecommerce_design_patterns/
 
 
 ## 6. Setup Instructions
+# Go to the main project root
+cd E:\git_ny_project\OrderProcessingSystem_py
 
+# Install project dependencies
+python -m pip install fastapi uvicorn sqlalchemy "psycopg[binary]" alembic
 ### Step 1: Create a virtual environment
-
-```bash
 python -m venv .venv
-```
 
 ### Step 2: Activate the environment
-
 Windows PowerShell:
-
-```powershell
 .\.venv\Scripts\Activate.ps1
-```
 
 macOS/Linux:
-
-```bash
 source .venv/bin/activate
-```
 
 ### Step 3: Install dependencies
-
-```bash
+python -m pip install fastapi uvicorn sqlalchemy "psycopg[binary]" alembic
 pip install -r requirements.txt
-```
 
 ### Step 4: Run the application
-
-```bash
 python main.py
-```
 
 ## 7. Learning Approach
 
@@ -185,3 +174,5 @@ New-Item creational/__init__.py -ItemType File
 New-Item structural/__init__.py -ItemType File
 New-Item behavioral/__init__.py -ItemType File
 New-Item models/__init__.py -ItemType File
+
+

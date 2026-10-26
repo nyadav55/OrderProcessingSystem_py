@@ -26,7 +26,6 @@ from behavioral.command import (
 )
 
 
-
 def main():
     # Create Products.
     laptop = Product(1, "Laptop", Decimal("800.00"))

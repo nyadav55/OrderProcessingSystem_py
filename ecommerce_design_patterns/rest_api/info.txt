@@ -1,0 +1,51 @@
+# Keep the existing main.py unchanged and create a separate FastAPI application for Phase 6.
+
+# Step 6.1 — Install dependencies
+python -m pip install fastapi uvicorn
+
+# Verify installation:
+python -m pip show fastapi uvicorn
+
+# Then update requirements.txt:
+python -m pip freeze > requirements.txt
+
+cd E:\git_ny_project\OrderProcessingSystem_py\ecommerce_design_patterns
+mkdir fastapi
+cd fastapi
+
+mkdir api, schemas, services, repositories, core, db
+New-Item main.py
+New-Item api\__init__.py
+New-Item schemas\__init__.py
+New-Item services\__init__.py
+New-Item repositories\__init__.py
+New-Item core\__init__.py
+New-Item db\__init__.py
+
+ecommerce_design_patterns/
+├── main.py                 # Existing application
+├── db/                     # Existing database code
+├── repositories/
+├── services/
+└── fastapi/                # New Phase 6 application
+    ├── main.py
+    ├── api/
+    ├── schemas/
+    ├── services/
+    ├── repositories/
+    ├── core/
+    └── db/
+
+# Run and verify (if inside the fastapi folder)
+python -m uvicorn main:app --reload
+
+O/p - Uvicorn running on http://127.0.0.1:8000
+
+What each layer does
+Component	Purpose	Example
+Pydantic	Validates request/response data	Reject negative quantity
+Controller / API	Handles HTTP requests and responses	POST /products
+Service	Implements business rules	Check product availability
+Repository	Handles database queries	Insert or retrieve product
+SQLAlchemy model	Maps Python objects to database tables	ProductModel
+PostgreSQL	Permanently stores data	products table
