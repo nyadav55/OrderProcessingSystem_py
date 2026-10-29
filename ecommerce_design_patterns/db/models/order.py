@@ -4,7 +4,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from db.base import Base
 
-
+# OrderModel	id, order_number, customer_email, status	Stores order details
 class OrderModel(Base):
     __tablename__ = "orders"
 

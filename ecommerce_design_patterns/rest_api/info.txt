@@ -1,5 +1,31 @@
 # Keep the existing main.py unchanged and create a separate FastAPI application for Phase 6.
 
+Phase 6 — REST API & Microservices Roadmap
+Project: E-Commerce Order Processing System
+Goal: Build a production-style backend using FastAPI, PostgreSQL, Redis, authentication, and microservices.
+
+Step 1 — Product REST APIs
+In progress
+Create/list products, get product by ID, validation, HTTP errors, Swagger testing.
+Step 2 — Update and Delete APIs
+PUT/PATCH/DELETE, duplicate checks, consistent error responses.
+Step 3 — Customer APIs
+Customer model, schemas, CRUD endpoints, email validation.
+Step 4 — Order APIs
+Create orders, order items, stock validation, transactions and lifecycle management.
+Step 5 — Authentication & Authorization
+Password hashing, JWT access tokens, roles and protected endpoints.
+Step 6 — Redis Caching
+Cache product reads, invalidate cache after updates, configure TTL.
+Step 7 — Background Tasks
+Celery + Redis for email notifications and asynchronous order processing.
+Step 8 — Microservices
+Separate Order, Payment and Notification services; define service contracts and failure handling.
+Step 9 — Testing & Quality
+Pytest, API integration tests, mocks, coverage, linting and type checks.
+Step 10 — Production Readiness
+Docker Compose, environment-based configuration, logging, health checks, CI/CD, secrets and monitoring.
+
 # Step 6.1 — Install dependencies
 python -m pip install fastapi uvicorn
 
@@ -43,9 +69,9 @@ O/p - Uvicorn running on http://127.0.0.1:8000
 
 What each layer does
 Component	Purpose	Example
-Pydantic	Validates request/response data	Reject negative quantity
-Controller / API	Handles HTTP requests and responses	POST /products
-Service	Implements business rules	Check product availability
-Repository	Handles database queries	Insert or retrieve product
-SQLAlchemy model	Maps Python objects to database tables	ProductModel
-PostgreSQL	Permanently stores data	products table
+Pydantic -	Validates request/response data	Reject negative quantity
+Controller / API -	Handles HTTP requests and responses	POST /products
+Service -	Implements business rules	Check product availability
+Repository -	Handles database queries	Insert or retrieve product
+SQLAlchemy model -	Maps Python objects to database tables	ProductModel
+PostgreSQL -	Permanently stores data	products table

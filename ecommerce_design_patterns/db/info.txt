@@ -31,3 +31,13 @@ Database models imported successfully
 New-Item -ItemType Directory -Force repositories
 New-Item -ItemType File -Force repositories\__init__.py
 New-Item -ItemType File -Force repositories\product_repository.py
+
+# Verify the import
+# Run from your project root:
+# Check that all customer repository functions import successfully.
+python -c "from rest_api.repositories.customer_repository import create_customer, list_customers, get_customer_by_id, get_customer_by_email; print('Customer repository imports OK')"
+
+# Create the missing customers table
+# Create the customers table if it does not already exist.
+# This uses the existing shared Base and database engine.
+python -c "from db.database import engine; from db.models.customer import CustomerModel; CustomerModel.__table__.create(bind=engine, checkfirst=True); print('Customer table verified')"

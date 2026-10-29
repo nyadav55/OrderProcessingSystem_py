@@ -5,7 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from db.base import Base
 
-
+# OrderItemModel	id, order_id, product_id, quantity, unit_price	Stores products belonging to an order
 class OrderItemModel(Base):
     __tablename__ = "order_items"
 
